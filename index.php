@@ -15,7 +15,11 @@ $app->config('debug', true);
 
 $app->get('/', function() {
     
-	echo "OK";
+	$sql = new Rcode\DB\Sql();
+	
+	$results = $sql->select("SELECT * FROM tb_users");
+	
+	echo json_encode($results);
 
 });
 
